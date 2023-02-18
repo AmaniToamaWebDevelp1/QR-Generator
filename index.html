@@ -1,43 +1,158 @@
 <!DOCTYPE html>
-<html lang = "eng">
+
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content"width=device-width,shrank-to-fit=0,initial-scale=1">
-<title> QR Generator</title>
-<script src="qrcode.min.js"></script>
-<style>
-body{
-width : max-content;
-height: max-content;
-justify-content: center;
-align-item : center;
-display: flex;
-font-size : 1.2 em;
-font-family : Roboto;
-padding: 5%;
-text-align:center;
-}
-section {
-width : max-content;
-height: max-content;
-justify-content: center;
-align-item : center;
-display: flex;
-flex-direction : column ;
-padding : 9px;
-}
-</style>
+
+ <meta charset="UTF-8" />
+
+ <meta name="viewport"
+
+  content="width=device-width,
+
+      initial-scale=1.0" />
+
+ <title>QR Code Generator</title>
+
+ <style>
+
+  h1, h6 {
+
+  color: red;
+    text-align: center;
+
+  }
+
+  body, header {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  }
+
+ </style>
+
+ <script src=
+
+"qrcode.min.js">
+
+ </script>
+
 </head>
+
 <body>
-<h2> QR Generator </h2>
-<h6> By Amani Toama</h6>
-<form action="/" id="qr-generation-form">
-<input type="text" name="qr-code-content" id="qr-content" value="" placeholder="Enter QR content" autocomplete="off">
-<input type="submit" value="Generator QR code" >
-</form>
-<div id="qr-code"></div>
-<script src="app.js"></script>
+
+ <header>
+
+  <h1>QR Generator</h1>
+
+  <h6>By Amani Toama </h6>
+
+  <h3>Enter QR code content and generate QR</h3>
+
+ </header>
+
+ <main>
+
+  <form action="/"
+
+   id="qr-generation-form">
+
+   <input type="text"
+
+    name="qr-code-content"
+
+    id="qr-content"
+
+    value=""
+
+    placeholder="Enter QR content"
+
+    autocomplete="off" />
+
+   <input type="submit"
+
+    value="Generate QR Code" />
+
+  </form><br />
+
+  <div id="qr-code"></div>
+
+ </main>
+
 </body>
+
+<script>
+
+ let qrContentInput = document.getElementById("qr-content");
+
+ let qrGenerationForm =
+
+ document.getElementById("qr-generation-form");
+
+ let qrCode;
+
+	
+
+	function generateQrCode(qrContent) {
+
+	return new QRCode("qr-code", {
+
+		text: qrContent,
+
+		width: 256,
+
+		height: 256,
+
+		colorDark: "#000000",
+
+		colorLight: "#ffffff",
+
+		correctLevel: QRCode.CorrectLevel.H,
+
+	});
+
+	}
+
+	
+
+	// Event listener for form submit event
+
+	qrGenerationForm.addEventListener("submit", function (event) {
+
+	// Prevent form submission
+
+	event.preventDefault();
+
+	let qrContent = qrContentInput.value;
+
+	if (qrCode == null) {
+
+		
+
+		// Generate code initially
+
+		qrCode = generateQrCode(qrContent);
+
+	} else {
+
+		
+
+		// If code already generated then make
+
+		// again using same object
+
+		qrCode.makeCode(qrContent);
+
+	}
+
+	});
+
+</script>
+
 </html>
-
-
