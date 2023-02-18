@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "eng">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content"width=device-width,shrank-to-fit=0,initial-scale=1">
+<title> QR Generator</title>
+<script src="qrcode.min.js"></script>
+<style>
+body{
+width : max-content;
+height: max-content;
+justify-content: center;
+align-item : center;
+display: flex;
+font-size : 1.2 em;
+font-family : Roboto;
+padding: 5%;
+}
+section {
+width : max-content;
+height: max-content;
+justify-content: center;
+align-item : center;
+display: flex;
+flex-direction : column ;
+padding : 9px;
+}
+</style>
+</head>
+<body>
+<form action="/" id="qr-generation-form">
+<input type="text" name="qr-code-content" id="qr-content" value="" placeholder="Enter QR content" autocomplete="off">
+<input type="submit" value="Generator QR code" >
+</form>
+<div id="qr-code"></div>
+</body>
+</html>
+
+
