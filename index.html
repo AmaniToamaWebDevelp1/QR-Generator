@@ -15,6 +15,7 @@ display: flex;
 font-size : 1.2 em;
 font-family : Roboto;
 padding: 5%;
+text-align:center;
 }
 section {
 width : max-content;
@@ -28,11 +29,14 @@ padding : 9px;
 </style>
 </head>
 <body>
+<h2> QR Generator </h2>
+<h6> By Amani Toama</h6>
 <form action="/" id="qr-generation-form">
 <input type="text" name="qr-code-content" id="qr-content" value="" placeholder="Enter QR content" autocomplete="off">
 <input type="submit" value="Generator QR code" >
 </form>
 <div id="qr-code"></div>
+<script src="app.js"></script>
 </body>
 </html>
 
